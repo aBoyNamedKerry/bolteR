@@ -4,7 +4,7 @@ dice_checkr(value = 6, rerolls = F)
 
 dice_distro(rolls = 24,value = 6)
 
-dice_distro(rolls = 10000, value = 2, rerolls = FALSE)
+dice_distro(rolls = 20, value = 2, rerolls = F)
 
 
 ## comparing lethals

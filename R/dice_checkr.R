@@ -18,26 +18,29 @@
 #' @examples
 #' dice_checkr(value = 6, rerolls = F)
 #'
-dice_checkr <- function(sides = 1:6, rolls = 1000, value = 3, rerolls = TRUE,
+dice_checkr <- function(sides = 1:6, rolls = 1000, value = 3, rerolls = FALSE,
                         reroll_val = 1:2, params  = ...) {
 
+  if(!is.numeric(sides)) stop("sides argument must be a numeric vector")
 
-  original_dice <- sample(x = sides, size = rolls, replace =TRUE)
+  if(!is.numeric(rolls) | !is.numeric(value) | !is.numeric(reroll_val)) stop("argument must be numeric")
 
-  original_dice_value <- original_dice[original_dice >=value]
+  dice <- sample(x = sides, size = rolls, replace =TRUE)
 
-  success = length(original_dice_value) / length(original_dice)
+  dice_value <- dice[dice >=value]
+
+  success = length(dice_value) / length(dice)
 
 if(rerolls) {
 
-  original_dice_miss = original_dice[original_dice <value]
+  dice_miss = dice[dice <value]
 
-  reroll_dice <- sample(x = sides, size = length(original_dice_miss),
+  reroll_dice <- sample(x = sides, size = length(dice_miss),
                       replace = TRUE)
 
   reroll_dice_value  <-  reroll_dice[reroll_dice >=value]
 
-  success <-  (length(original_dice_value) + length(reroll_dice_value)) / length(original_dice)
+  success <-  (length(dice_value) + length(reroll_dice_value)) / length(dice)
 }
 
  success
