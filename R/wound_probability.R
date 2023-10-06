@@ -10,6 +10,9 @@
 #' wound_probability(strength = 4, toughness = 5)
 wound_probability <- function(strength = 4, toughness = 4) {
 
+  if(!is.numeric(strength) | !is.numeric(toughness))
+    stop("strength or toughness argument must be numeric")
+
   wound_prob <-
     ifelse(strength == toughness,
            0.5,

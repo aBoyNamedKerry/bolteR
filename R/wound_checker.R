@@ -16,6 +16,9 @@
 #' wound_checker(dice = 24, hit_prob = 0.33, strength = 4, toughness = 5)
 wound_checker <- function(dice = 12, hit_prob = 0.66, strength = 4, toughness = 4, lethal_hits = FALSE) {
 
+  if(!is.numeric(hit_prob) | !is.numeric(dice))
+    stop("specified argument must be numeric")
+
 #derive probability of successful wound
  wound_prob <- wound_probability(strength = strength, toughness = toughness)
 
