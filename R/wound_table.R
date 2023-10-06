@@ -12,7 +12,8 @@
 #' @export
 #'
 #' @examples
-wound_table <- function(dice = 24, strength = c(2,3,4,5,8),toughess = 4,
+#' wound_table(dice = 16, toughness = 4, lethals = TRUE)
+wound_table <- function(dice = 24, strength = c(2,3,4,5,8),toughness = 4,
                         lethals = FALSE, hit_prob = 0.66)  {
 
 
@@ -23,7 +24,7 @@ wound_table <- function(dice = 24, strength = c(2,3,4,5,8),toughess = 4,
   #produce results
   df_list <- map2(strength, lethal_list, ~{
     data.frame(wound_checker(dice = dice, strength = .x, lethal_hits = .y,
-                             hit_prob = hit_prob))
+                             hit_prob = hit_prob, toughness = toughness))
   }
   )
 
@@ -35,7 +36,8 @@ wound_table <- function(dice = 24, strength = c(2,3,4,5,8),toughess = 4,
   } else {
 
     df_list <- map(strength, ~{
-      data.frame(wound_checker(dice = dice, strength = .x, hit_prob = hit_prob))
+      data.frame(wound_checker(dice = dice, strength = .x, hit_prob = hit_prob,
+                               toughness = toughness))
 
     })
 
@@ -57,7 +59,7 @@ wound_table <- function(dice = 24, strength = c(2,3,4,5,8),toughess = 4,
 
   if(lethals) {
   #add new columns if lethals selected for comparison
-  df[, `:=`(
+  df <- df[, `:=`(
     very_weak_diff =
       paste0(round((very_weak_lethal - very_weak) / very_weak * 100,2), "%"),
     weak_diff =

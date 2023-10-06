@@ -16,6 +16,8 @@
 #' @export
 #'
 #' @examples
+#' dice_checkr(value = 6, rerolls = F)
+#'
 dice_checkr <- function(sides = 1:6, rolls = 1000, value = 3, rerolls = TRUE,
                         reroll_val = 1:2, params  = ...) {
 
@@ -35,7 +37,7 @@ if(rerolls) {
 
   reroll_dice_value  <-  reroll_dice[reroll_dice >=value]
 
-  success <-  (length(original_dice_value) + length(reroll_dice_value)) / length(original_dice) * 100
+  success <-  (length(original_dice_value) + length(reroll_dice_value)) / length(original_dice)
 }
 
  success

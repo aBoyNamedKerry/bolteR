@@ -7,7 +7,7 @@
 wound_table(
   dice = 24,
   strength = c(2, 3, 4, 5, 8),
-  toughess = 4,
+  toughness = 4,
   lethals = FALSE,
   hit_prob = 0.66
 )
@@ -17,15 +17,18 @@ wound_table(
 
 \item{strength}{the strength of the user}
 
-\item{toughess}{the toughness}
-
 \item{lethals}{whether lethal are set}
 
 \item{hit_prob}{the probability of hit}
+
+\item{toughess}{the toughness}
 }
 \value{
 a data frame
 }
 \description{
 Title
+}
+\examples{
+wound_table(dice = 16, toughness = 4, lethals = TRUE)
 }

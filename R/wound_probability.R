@@ -1,4 +1,14 @@
-wound_probability <- function(strength = 4, toughness = 5) {
+#' Find the probability of wounding based on strength and wound characteristics
+#'
+#' @param strength the strength of the attacking model
+#' @param toughness the toughness of the defending model
+#'
+#' @return the likely success based on the probability to 2 decimal places
+#' @export
+#'
+#' @examples
+#' wound_probability(strength = 4, toughness = 5)
+wound_probability <- function(strength = 4, toughness = 4) {
 
   wound_prob <-
     ifelse(strength == toughness,
