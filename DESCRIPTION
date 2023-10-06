@@ -1,14 +1,17 @@
 Package: bolteR
-Title: What the Package Does (One Line, Title Case)
+Title: Table top dice success simulator
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
+    person("Kerry", "Cella", , "Kerry.Cella@example.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Description: The package aims to show in a relatively crude way the likelihood
+  of obtaining certain results based on rolling a number of dice. Many of the
+  function are built around the Warhammer 40,000 10 edition mechnics, such as
+  wounding a target, a models strength and toughness.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports: 
     data.table
+    purrr
