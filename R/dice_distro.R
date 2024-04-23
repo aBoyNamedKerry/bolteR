@@ -15,7 +15,7 @@
 #' The min probability of success across all rolls
 #' The upper and lower bound of probability to approximately 99% of a normal
 #' distribution.
-#' The average number of successes to expectbased on the simulation.
+#' The average number of successes to expect based on the simulation.
 #'
 #' @export
 #'
@@ -45,7 +45,7 @@ dice_distro <- function(sides = 1:6, rolls = 1000, value = 3, times= 1:1000,
 
   successes =  round(rolls * avg_result)
 
-  summary = paste("Mean prob = ", round(avg_results,3),
+  summary = paste("Mean prob = ", round(avg_result,3),
                   "\nMax prob = ", round(max_result, 3),
                   "\nMin prob = ", round(min_result,3),
                   "\nUpper prob = ", round(var_upper, 3),

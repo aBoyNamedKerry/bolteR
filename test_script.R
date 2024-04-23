@@ -2,7 +2,7 @@ devtools::load_all()
 
 dice_checkr(value = 6, rerolls = F)
 
-dice_distro(rolls = 24,value = 6)
+dice_distro(rolls = 24,value = 5)
 
 dice_distro(rolls = 20, value = 2, rerolls = F)
 
@@ -123,5 +123,32 @@ purrr::map(col_names, ~{
 )}
 )
 
+#combine with saves
+#create save probabilities
+saves = round(1 - (1:5 / 6), 3)
+
+#no buffs
+30 * 0.66 * 0.66 * 0.5
+
+#with wound rerolls
+30 * 0.66 * 0.89 * 0.5
 
 
+#with hit rerolls
+30 * 0.89 * 0.66 * 0.5
+
+#with hit and wound rerolls
+30 * 0.89 * 0.89 * 0.5
+
+#with hit and wound rerolls
+24 * 0.97 * 0.89 * 0.5
+
+df = data.table::data.table("6+" = numeric(), "5+" = numeric(), "4+" = numeric(),
+                            "3+" = numeric(), "2+" = numeric())
+
+wound_success <- data.table::as.data>table(
+  purrr::map(saves, \(saves) 30 * 0.89 * 0.89 * saves))
+
+do.call("rbind"(df, wound_success))
+
+rbind (df, wound_success)
