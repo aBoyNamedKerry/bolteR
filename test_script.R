@@ -4,7 +4,7 @@ dice_checkr(value = 6, rerolls = F)
 
 dice_distro(rolls = 24,value = 5)
 
-dice_distro(rolls = 20, value = 2, rerolls = F)
+dice_distro(rolls = 8, value = 4, rerolls = TRUE)
 
 
 ## comparing lethals
@@ -12,7 +12,7 @@ dice_distro(rolls = 20, value = 2, rerolls = F)
 #roll 24 dice
 
 #with lethals
-dice <- 24
+dice <- 30
 
 hit_perc = 0.66
 
@@ -68,7 +68,7 @@ weaker_lethals <- wound_checker(dice = 24, strength = 3, lethal_hits = TRUE)
 equal<- wound_checker(dice = 24)
 equal_lethals <- wound_checker(dice = 24, lethal_hits = TRUE)
 
-stronger <- wound_checker(dice = 24, strength = 5)
+stronger <- wound_checker(dice = 30, strength = 6)
 stronger_lethal <- wound_checker(dice = 24, strength = 5, lethal_hits = TRUE)
 
 really_strong <- wound_checker(dice = 24, strength = 8)

@@ -14,7 +14,8 @@
 #'
 #' @examples
 #' wound_checker(dice = 24, hit_prob = 0.33, strength = 4, toughness = 5)
-wound_checker <- function(dice = 12, hit_prob = 0.66, strength = 4, toughness = 4, lethal_hits = FALSE) {
+wound_checker <- function(dice = 12, hit_prob = 0.66, strength = 4, toughness = 4, lethal_hits = FALSE,
+                          reroll_wounds = FALSE) {
 
   if(!is.numeric(hit_prob) | !is.numeric(dice))
     stop("specified argument must be numeric")
@@ -33,6 +34,14 @@ wound_checker <- function(dice = 12, hit_prob = 0.66, strength = 4, toughness = 
    hits = round(dice * hit_prob  - lethals)
 
    wound_success = round(hits * wound_prob + lethals)
+
+ }
+
+ if(reroll_wounds) {
+
+   remaining_hits = hits - wound_success
+
+   wound_success =  wound_success + round(remaining_hits * wound_prob)
 
  }
 
