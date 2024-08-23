@@ -31,9 +31,9 @@ wound_checker <- function(dice = 12, hit_prob = 0.66, strength = 4, toughness = 
 
    lethals <- round(dice * 0.166)
 
-   hits = round(dice * hit_prob  - lethals)
+   lethal_hits = round(dice * hit_prob  - lethals)
 
-   wound_success = round(hits * wound_prob + lethals)
+   wound_success = round(lethal_hits * wound_prob + lethals)
 
  }
 

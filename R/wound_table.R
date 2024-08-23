@@ -12,12 +12,12 @@
 #' @export
 #'
 #' @examples
-#' wound_table(dice = 16, toughness = 4, lethals = TRUE)
+#' wound_table(dice = 16, toughness = 4, lethal_hits = TRUE)
 wound_table <- function(dice = 24, strength = c(2,3,4,5,8),toughness = 4,
-                        lethals = FALSE, hit_prob = 0.66)  {
+                        lethal_hits = FALSE, hit_prob = 0.66)  {
 
 
-  if(lethals) {
+  if(lethal_hits) {
     lethal_list <- rep(c(FALSE, TRUE), length(strength))
     strength <- sort(rep(strength,2))
 
@@ -57,7 +57,7 @@ wound_table <- function(dice = 24, strength = c(2,3,4,5,8),toughness = 4,
   #set as a data.table
   setDT(df)
 
-  if(lethals) {
+  if(lethal_hits) {
   #add new columns if lethals selected for comparison
   df <- df[, `:=`(
     very_weak_diff =
@@ -72,7 +72,11 @@ wound_table <- function(dice = 24, strength = c(2,3,4,5,8),toughness = 4,
       paste0(round((very_strong_lethal - very_strong) / very_strong * 100,2), "%")
   )]
 
-
+  setcolorder(df, c("very_weak", "very_weak_lethal", "very_weak_diff",
+                    "weaker", "weaker_lethal", "weak_diff",
+                    "equal", "equal_lethal", "equal_diff",
+                    "stronger","stronger_lethal", "strong_diff",
+                    "very_strong", "very_strong_lethal", "very_strong_diff"))
   }
 
   df
