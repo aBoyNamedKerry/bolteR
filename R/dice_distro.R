@@ -21,7 +21,7 @@
 #'
 #' @examples
 #' # roll a 2 or better on 20 dice
-#' dice_distro(rolls = 20, value = 2, rerolls = F)
+#' dice_distro(rolls = 20, value = 2, rerolls = FALSE)
 dice_distro <- function(sides = 1:6, rolls = 1000, value = 3, times= 1:1000,
                         rerolls = FALSE, reroll_val = 1:2) {
 

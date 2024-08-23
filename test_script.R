@@ -1,10 +1,8 @@
-devtools::load_all()
-
 dice_checkr(value = 6, rerolls = F)
 
 dice_distro(rolls = 24,value = 5)
 
-dice_distro(rolls = 8, value = 4, rerolls = TRUE)
+dice_distro(rolls = 30, value = 2, rerolls = TRUE)
 
 
 ## comparing lethals

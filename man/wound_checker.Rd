@@ -10,7 +10,8 @@ wound_checker(
   hit_prob = 0.66,
   strength = 4,
   toughness = 4,
-  lethal_hits = FALSE
+  lethal_hits = FALSE,
+  reroll_wounds = FALSE
 )
 }
 \arguments{
@@ -22,7 +23,9 @@ wound_checker(
 
 \item{toughness}{toughness of defending model}
 
-\item{lethal_hits}{are the wound lethal?}
+\item{lethal_hits}{are the wound lethal? Set to FALSE}
+
+\item{reroll_wounds}{are wounds rerolled as part of the attack? Set to FALSE}
 }
 \value{
 a numeric scalar object

@@ -4,12 +4,12 @@
 \name{bolteR-package}
 \alias{bolteR}
 \alias{bolteR-package}
-\title{bolteR: What the Package Does (One Line, Title Case)}
+\title{bolteR: Table top dice success simulator}
 \description{
-What the package does (one paragraph).
+The package aims to show in a relatively crude way the likelihood of obtaining certain results based on rolling a number of dice. Many of the function are built around the Warhammer 40,000 10 edition mechnics, such as wounding a target, a models strength and toughness.
 }
 \author{
-\strong{Maintainer}: First Last \email{first.last@example.com} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
+\strong{Maintainer}: Kerry Cella \email{Kerry.Cella@example.com} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
 
 }
 \keyword{internal}

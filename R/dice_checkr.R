@@ -16,7 +16,7 @@
 #' @export
 #'
 #' @examples
-#' dice_checkr(value = 6, rerolls = F)
+#' dice_checkr(value = 6, rerolls = FALSE)
 #'
 dice_checkr <- function(sides = 1:6, rolls = 1000, value = 3, rerolls = FALSE,
                         reroll_val = 1:2, params  = ...) {

@@ -34,7 +34,7 @@ The max probability of success across all rolls
 The min probability of success across all rolls
 The upper and lower bound of probability to approximately 99\% of a normal
 distribution.
-The average number of successes to expectbased on the simulation.
+The average number of successes to expect based on the simulation.
 }
 \description{
 Distribution for desired values when for rolling x number of dice y times
@@ -42,5 +42,5 @@ The aim is to simulate the expected variance
 }
 \examples{
 # roll a 2 or better on 20 dice
-dice_distro(rolls = 20, value = 2, rerolls = F)
+dice_distro(rolls = 20, value = 2, rerolls = FALSE)
 }

@@ -7,7 +7,8 @@
 #' @param hit_prob probability of a successful hit
 #' @param strength strength of attacking model
 #' @param toughness toughness of defending model
-#' @param lethal_hits are the wound lethal?
+#' @param lethal_hits are the wound lethal? Set to FALSE
+#' @param reroll_wounds are wounds rerolled as part of the attack? Set to FALSE
 #'
 #' @return a numeric scalar object
 #' @export

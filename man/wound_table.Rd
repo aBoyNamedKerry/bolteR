@@ -2,33 +2,38 @@
 % Please edit documentation in R/wound_table.R
 \name{wound_table}
 \alias{wound_table}
-\title{Title}
+\title{Provides a table showing the number of expected successful wounds
+given a series of different strength profiles into a toughness.}
 \usage{
 wound_table(
   dice = 24,
   strength = c(2, 3, 4, 5, 8),
   toughness = 4,
-  lethals = FALSE,
-  hit_prob = 0.66
+  lethal_hits = FALSE,
+  hit_prob = 0.66,
+  reroll_wounds = FALSE
 )
 }
 \arguments{
 \item{dice}{the number of dice to roll}
 
-\item{strength}{the strength of the user}
+\item{strength}{the strength profiles of the attacks}
 
-\item{lethals}{whether lethal are set}
+\item{toughness}{the toughness of the target profile}
 
-\item{hit_prob}{the probability of hit}
+\item{lethal_hits}{whether the weapon profile has lethal hits? Set to FALSE}
 
-\item{toughess}{the toughness}
+\item{hit_prob}{the probability of a successful hit}
+
+\item{reroll_wounds}{are wounds rerolled as part of the attack? Set to FALSE}
 }
 \value{
 a data frame
 }
 \description{
-Title
+The default toughness is set to 4 and the strength set to be half, less than,
+equal, greater than and double accordingly.
 }
 \examples{
-wound_table(dice = 16, toughness = 4, lethals = TRUE)
+wound_table(dice = 16, toughness = 4, lethal_hits = TRUE)
 }

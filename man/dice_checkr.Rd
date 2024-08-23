@@ -9,7 +9,7 @@ dice_checkr(
   sides = 1:6,
   rolls = 1000,
   value = 3,
-  rerolls = TRUE,
+  rerolls = FALSE,
   reroll_val = 1:2,
   params = ...
 )
@@ -38,6 +38,6 @@ The dice_checkr function is designed to simulate rolling a dice a number of
 and obtain a value of better than based on the number of sides on the dice
 }
 \examples{
-dice_checkr(value = 6, rerolls = F)
+dice_checkr(value = 6, rerolls = FALSE)
 
 }
