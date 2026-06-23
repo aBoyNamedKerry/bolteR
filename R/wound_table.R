@@ -40,9 +40,9 @@ wound_table <- function(dice = 24, strength = c(2,3,4,5,8),toughness = 4,
   )
 
   #create column names
-  col_names <- (c("very_weak", "very_weak_lethal", "weaker", "weaker_lethal",
-                  "equal", "equal_lethal", "stronger","stronger_lethal",
-                  "very_strong", "very_strong_lethal"))
+  col_names <- (c("Weak", "Weak_lethal", "Weaker", "Weaker_lethal",
+                  "Equal", "Equal_lethal", "Stronger","Stronger_lethal",
+                  "Strong", "Strong_lethal"))
 
   } else {
 
@@ -52,9 +52,9 @@ wound_table <- function(dice = 24, strength = c(2,3,4,5,8),toughness = 4,
 
     })
 
-    col_names <- (c("very_weak", "weaker",
-                    "equal",  "stronger",
-                    "very_strong"))
+    col_names <- (c("Weak", "Weaker",
+                    "Equal",  "Stronger",
+                    "Strong"))
   }
 
 
@@ -69,25 +69,25 @@ wound_table <- function(dice = 24, strength = c(2,3,4,5,8),toughness = 4,
   setDT(df)
 
   if(lethal_hits) {
-  #add new columns if lethals selected for comparison
+  #add new columns if lethal hits selected for comparison
   df <- df[, `:=`(
-    very_weak_diff =
-      paste0(round((very_weak_lethal - very_weak) / very_weak * 100,2), "%"),
-    weak_diff =
-      paste0(round((weaker_lethal - weaker) / weaker * 100,2), "%"),
-    equal_diff =
-      paste0(round((equal_lethal - equal) / equal * 100,2), "%"),
-    strong_diff =
-      paste0(round((stronger_lethal - stronger) / stronger * 100,2), "%"),
-    very_strong_diff =
-      paste0(round((very_strong_lethal - very_strong) / very_strong * 100,2), "%")
+    Weak_diff =
+      paste0(round((Weak_lethal - Weak) / Weak * 100,2), "%"),
+    Weaker_diff =
+      paste0(round((Weak_lethal - Weaker) / Weaker * 100,2), "%"),
+    Equal_diff =
+      paste0(round((Equal_lethal - Equal) / Equal * 100,2), "%"),
+    Stronger_diff =
+      paste0(round((Stronger_lethal - Stronger) / Stronger * 100,2), "%"),
+    Strong_diff =
+      paste0(round((Strong_lethal - Strong) / Strong * 100,2), "%")
   )]
 
-  setcolorder(df, c("very_weak", "very_weak_lethal", "very_weak_diff",
-                    "weaker", "weaker_lethal", "weak_diff",
-                    "equal", "equal_lethal", "equal_diff",
-                    "stronger","stronger_lethal", "strong_diff",
-                    "very_strong", "very_strong_lethal", "very_strong_diff"))
+  setcolorder(df, c("Weak", "Weak_lethal", "Weak_diff",
+                    "Weaker", "Weaker_lethal", "Weaker_diff",
+                    "Equal", "Equal_lethal", "Equal_diff",
+                    "Stronger","Stronger_lethal", "Stronger_diff",
+                    "Strong", "Strong_lethal", "Strong_diff"))
   }
 
   df

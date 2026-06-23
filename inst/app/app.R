@@ -25,11 +25,11 @@ ui <- fluidPage(
           helpText(
             "Strength profiles are automatically calculated from Toughness:",
             tags$ul(
-              tags$li("Very Weak: floor(T / 2)"),
-              tags$li("Weaker: T - 1"),
-              tags$li("Equal: T"),
-              tags$li("Stronger: T + 1"),
-              tags$li("Very Strong: T \u00d7 2")
+              tags$li(tags$strong("Weak"), ": Strength is half toughness"),
+              tags$li(tags$strong("Weaker"), ": Strength is less than toughness but not half"),
+              tags$li(tags$strong("Equal"), ": Strength is equal to toughness"),
+              tags$li(tags$strong("Stronger"), ": Strength is greather than toughness but not double"),
+              tags$li(tags$strong("Strong"), ": Strength is twice toughness")
             )
           ),
           actionButton("go_wounds", "Roll!", class = "btn-primary")
