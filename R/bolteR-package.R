@@ -11,5 +11,6 @@
 #' @importFrom data.table .SD
 #' @importFrom data.table :=
 #' @importFrom data.table data.table
+#' @importFrom shiny runApp
 ## usethis namespace: end
 NULL
