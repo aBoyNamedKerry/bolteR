@@ -33,7 +33,7 @@ dice_checkr <- function(sides = 1:6, rolls = 1000, value = 3, rerolls = FALSE,
 
 if(rerolls) {
 
-  dice_miss = dice[dice <value]
+  dice_miss = dice[dice %in% reroll_val]
 
   reroll_dice <- sample(x = sides, size = length(dice_miss),
                       replace = TRUE)

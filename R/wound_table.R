@@ -20,8 +20,8 @@
 #' @examples
 #' wound_table(dice = 16, toughness = 4, lethal_hits = TRUE)
 wound_table <- function(dice = 24, strength = c(2,3,4,5,8),toughness = 4,
-                        lethal_hits = FALSE, hit_prob = 0.66,
-                        reroll_wounds =FALSE)  {
+                        lethal_hits = FALSE, hit_prob = 4/6,
+                        reroll_wounds =FALSE, reroll_hits = FALSE)  {
 
   if(length(strength) != 5) stop(
     "stength must be a vector of length 5, e.g. c(2,3,4,5,8)"
@@ -35,7 +35,7 @@ wound_table <- function(dice = 24, strength = c(2,3,4,5,8),toughness = 4,
   df_list <- map2(strength, lethal_list, ~{
     data.frame(wound_checker(dice = dice, strength = .x, lethal_hits = .y,
                              hit_prob = hit_prob, toughness = toughness,
-                             reroll_wounds = reroll_wounds))
+                             reroll_wounds = reroll_wounds, reroll_hits = reroll_hits))
   }
   )
 
@@ -48,7 +48,7 @@ wound_table <- function(dice = 24, strength = c(2,3,4,5,8),toughness = 4,
 
     df_list <- map(strength, ~{
       data.frame(wound_checker(dice = dice, strength = .x, hit_prob = hit_prob,
-                               toughness = toughness, reroll_wounds = reroll_wounds))
+                               toughness = toughness, reroll_wounds = reroll_wounds, reroll_hits = reroll_hits))
 
     })
 
@@ -74,7 +74,7 @@ wound_table <- function(dice = 24, strength = c(2,3,4,5,8),toughness = 4,
     Weak_diff =
       paste0(round((Weak_lethal - Weak) / Weak * 100,2), "%"),
     Weaker_diff =
-      paste0(round((Weak_lethal - Weaker) / Weaker * 100,2), "%"),
+      paste0(round((Weaker_lethal - Weaker) / Weaker * 100,2), "%"),
     Equal_diff =
       paste0(round((Equal_lethal - Equal) / Equal * 100,2), "%"),
     Stronger_diff =

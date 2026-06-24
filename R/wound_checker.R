@@ -8,15 +8,15 @@
 #' @param strength strength of attacking model
 #' @param toughness toughness of defending model
 #' @param lethal_hits are the wound lethal? Set to FALSE
-#' @param reroll_wounds are wounds rerolled as part of the attack? Set to FALSE
+#' @param reroll_wounds are wounds re-rolled as part of the attack? Set to FALSE
 #'
 #' @return a numeric scalar object
 #' @export
 #'
 #' @examples
 #' wound_checker(dice = 24, hit_prob = 0.33, strength = 4, toughness = 5)
-wound_checker <- function(dice = 12, hit_prob = 0.66, strength = 4, toughness = 4, lethal_hits = FALSE,
-                          reroll_wounds = FALSE) {
+wound_checker <- function(dice = 12, hit_prob = (4/6), strength = 4, toughness = 4, lethal_hits = FALSE,
+                          sustained_hits= FALSE, reroll_wounds = FALSE, reroll_hits = FALSE) {
 
   if(!is.numeric(hit_prob) | !is.numeric(dice))
     stop("specified argument must be numeric")
@@ -26,11 +26,24 @@ wound_checker <- function(dice = 12, hit_prob = 0.66, strength = 4, toughness = 
 
  hits <- round(dice * hit_prob)
 
+ if(sustained_hits) {
+   hits <- round(hits + dice * 1/6)
+ }
+
+ if(reroll_hits) {
+   missed <- dice - hits
+   hits <- hits + round(missed * hit_prob)
+   if(sustained_hits){
+     hits <- hits + missed * 1/6
+   }
+ }
+
+
  wound_success <- round(hits * wound_prob)
 
  if(lethal_hits) {
 
-   lethals <- round(dice * 0.166)
+   lethals <- (dice * (1/6))
 
    lethal_hits = round(dice * hit_prob  - lethals)
 

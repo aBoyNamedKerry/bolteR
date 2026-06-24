@@ -17,11 +17,11 @@ wound_probability <- function(strength = 4, toughness = 4) {
     ifelse(strength == toughness,
            0.5,
            ifelse(strength > toughness & strength <  2* toughness,
-                  0.66,
+                  2/3,
                   ifelse(strength >=  2* toughness,
-                         0.83,
+                         5/6,
                          ifelse(toughness > strength & toughness < 2*strength,
-                                0.33,
-                                0.166 ))))
+                                1/3,
+                                1/6 ))))
   wound_prob
 }
